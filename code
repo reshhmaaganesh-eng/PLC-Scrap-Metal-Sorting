@@ -1,0 +1,22 @@
+SYSTEM ARCHITECTURE 
+
+Hopper -> Vibratorv feeder -> Conveyor -> Validated sensors -> Delta PLC
+ |               |
+
+Classification +-> Motor relay / 
+contactor
+
++-> Relay/driver -> 5/2 valve
+|
+
+Pneumatic pusher
+    /         \
+Ferrous bin   Non-ferrous bin
+
+Optional monitoring: PLC <-> RS485/MAX485 <-> ESP32 -> 20x4 I2C LCD
+
+CONCEPTUAL SEQUENCE 
+1. Operator starts the svstem
+2. Convevor carries a separated piece past the sensing point.
+3. Sensors send signals to the PLC.
+4. PLC applies experimentally validated classification logic.
