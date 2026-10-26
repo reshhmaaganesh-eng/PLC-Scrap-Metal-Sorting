@@ -20,3 +20,22 @@ CONCEPTUAL SEQUENCE
 2. Convevor carries a separated piece past the sensing point.
 3. Sensors send signals to the PLC.
 4. PLC applies experimentally validated classification logic.
+
+OPTIONAL ESP32 MONITORING 
+Use one ESP32 to receive PLC status/count data over RS485 via a compatible MAX485 interface and show it on a 20x4 12C LCD.
+Before coding:
+Define the serial protocol and baud rate.
+• Verify RS485 A/B wiring and electrical reference/isolation.
+• Never connect 24 V PLC signals directly to ESP32 • Confirm LCD I2C address and library.
+Add firmware and test results only after bench testing.
+ESP32 monitoring must not replace the hardwired emergency-stop circuit.
+
+PLC PROGRAM
+Target: Delta DVP-14SS2; confirm exact model/output variant.
+This repository does not include unverified ladder logic as ready-to-run code. Create and test the final program in the suitable Delta programming software using the actual wiring
+Checklist:
+1. Confirm PLC model/output type and termina diagram.
+2. Confirm sensor NPN/PNP. NO/NC behavior. and voltage.
+3. Implement start/stop, interlocks, validated sensor logic, pusher timing, iam handling, and fault recovery.
+4. Test with outputs disconnected or safely simulated first.
+5. Add the tested program export and ladder diagram here.
